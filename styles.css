@@ -1,46 +1,51 @@
-*, ::before, ::after {
-    padding: 0;
+body {
     margin: 0;
-    box-sizing: border-box;
 }
-nav {
-    display:flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
+
+.header {
+    background-color: #F3F3F3;
+    display: flex;
+    align-items: baseline;
     padding: .5rem;
-    height: 10vh;
-    background-color: #2f2f2f;
+    gap: 1rem;
 }
+
 .link {
     background: none;
     border: none;
     text-decoration: none;
-    color: #777;
+    color #777;
+    font-family: inherit;
+    font-size: inherit;
     cursor: pointer;
     padding: 0;
 }
-.dropdown > .link:focus, .link:hover {
+
+.dropdown.active > .link,
+.link:hover {
     color: black;
 }
+
 .dropdown {
     position: relative;
 }
+
 .dropdown-menu {
     position: absolute;
     left: 0;
-    top: calc(100% + .25rem);
-    background-color: white;
+    top: calc(100% - .5rem);
+    background: white;
     padding: .75rem;
     border-radius: .25rem;
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .1);
+    box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.1);
     opacity: 0;
-    transform: translateY(-10px);
     pointer-events: none;
+    transform: translateY(-10px);
     transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
 }
-.dropdown > .link:focus + .dropdown-menu {
+
+.dropdown.active > .link + .dropdown-menu  {
     opacity: 1;
     transform: translateY(0);
     pointer-events: auto;
-} 
+}
